@@ -48,20 +48,20 @@ src/
 
 ### Tela de Cadastro
 
-![Tela de Cadastro](prints/cadastro-projeto.png)
+![Tela de Cadastro](https://raw.githubusercontent.com/gabrielcaue/mifica-frontend/main/prints/cadastro-projeto.png)
 
 ### Tela de Login
 
-![Tela de Login](prints/login-projeto.png)
+![Tela de Login](https://raw.githubusercontent.com/gabrielcaue/mifica-frontend/main/prints/login-projeto.png)
 
 ### Tela de Dashboard
 
-![Tela de Dashboard](prints/dashboard-projeto.png)
+![Dashboard](https://raw.githubusercontent.com/gabrielcaue/mifica-frontend/main/prints/dashboard-projeto.png)
 
-### Tela de Perfil
+### Tela de Perfil de Usuário
 
-![Tela de Perfil](prints/perfil-projeto.png)
+![Perfil do Usuário](https://raw.githubusercontent.com/gabrielcaue/mifica-frontend/main/prints/perfil-projeto.png)
 
 ### Tela de Configuração
 
-![Tela de Configuração](prints/configuração-projeto.png)
+![Tela de Configuração](https://raw.githubusercontent.com/gabrielcaue/mifica-frontend/main/prints/configuração-projeto.png)
