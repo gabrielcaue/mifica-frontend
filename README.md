@@ -43,3 +43,25 @@ src/
 - Integração com Streamlit, Docker e GCP será adicionada em breve
 
 > Substitua `seu-usuario` pelos seus dados reais antes de subir.
+
+## 🖼️ Prints do projeto
+
+### Tela de Cadastro
+
+![Tela de Cadastro](prints/cadastro-projeto.png)
+
+### Tela de Login
+
+![Tela de Login](prints/login-projeto.png)
+
+### Tela de Dashboard
+
+![Tela de Dashboard](prints/dashboard-projeto.png)
+
+### Tela de Perfil
+
+![Tela de Perfil](prints/perfil-projeto.png)
+
+### Tela de Configuração
+
+![Tela de Configuração](prints/configuração-projeto.png)
