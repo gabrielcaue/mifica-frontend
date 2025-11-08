@@ -43,12 +43,12 @@ src/
 - Integração com Streamlit, Docker e GCP será adicionada em breve
 
 > Substitua `seu-usuario` pelos seus dados reais antes de subir.
-
+```
 ## 🖼️ Prints do projeto
 
 ### Tela de Cadastro
 
-<img width="632" height="581" alt="Image" src="https://github.com/user-attachments/assets/4d35ec09-60a7-4335-9940-5e3c69a96c2b" />
+![Cadastro de Projeto](prints/cadastro-projeto.png)
 
 ### Tela de Login
 
