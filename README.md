@@ -42,4 +42,4 @@ src/
 
 - Integração com Streamlit, Docker e GCP será adicionada em breve
 
-> Substitua `seu-usuario` e `seu-perfil` pelos seus dados reais antes de subir.
+> Substitua `seu-usuario` pelos seus dados reais antes de subir.
