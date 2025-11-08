@@ -48,20 +48,20 @@ src/
 
 ### Tela de Cadastro
 
-![Tela de Cadastro](https://raw.githubusercontent.com/gabrielcaue/mifica-frontend/main/prints/cadastro-projeto.png)
+<img width="632" height="581" alt="Image" src="https://github.com/user-attachments/assets/4d35ec09-60a7-4335-9940-5e3c69a96c2b" />
 
 ### Tela de Login
 
-![Tela de Login](https://raw.githubusercontent.com/gabrielcaue/mifica-frontend/main/prints/login-projeto.png)
+<img width="713" height="577" alt="Image" src="https://github.com/user-attachments/assets/225357fa-3ea8-43a3-8120-10342c3cf38e" />
 
 ### Tela de Dashboard
 
-![Dashboard](https://raw.githubusercontent.com/gabrielcaue/mifica-frontend/main/prints/dashboard-projeto.png)
+<img width="1445" height="912" alt="Image" src="https://github.com/user-attachments/assets/f25752dc-9121-4fab-89db-77cca1470734" />
 
-### Tela de Perfil de Usuário
+### Tela de Perfil do Usuário
 
-![Perfil do Usuário](https://raw.githubusercontent.com/gabrielcaue/mifica-frontend/main/prints/perfil-projeto.png)
+<img width="1083" height="422" alt="Image" src="https://github.com/user-attachments/assets/a1b8c9fd-508e-4869-b6bc-3459f24864e7" />
 
-### Tela de Configuração
+### Tela de Configuracao
 
-![Tela de Configuração](https://raw.githubusercontent.com/gabrielcaue/mifica-frontend/main/prints/configuração-projeto.png)
+<img width="1102" height="606" alt="Image" src="https://github.com/user-attachments/assets/e5e9a04f-5be0-49ea-82f8-3bb0d6255faf" />
