@@ -1,6 +1,5 @@
-// src/pages/Login.jsx
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import api from '../services/api';
 import logo from '../assets/logo.png';
@@ -12,6 +11,9 @@ export default function Login() {
   const [token, setToken] = useState('');
   const { login } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const origem = location.state?.from || '/dashboard';
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -21,29 +23,30 @@ export default function Login() {
         senha: senha.trim()
       });
 
-      // Verifica se o token veio corretamente
       const tokenRecebido = res.data.token;
       if (!tokenRecebido) {
         alert("Login falhou: token não recebido.");
         return;
       }
 
-      // Monta o objeto completo para o AuthContext
-const decoded = jwtDecode(tokenRecebido);
+      const decoded = jwtDecode(tokenRecebido);
 
       const usuario = {
-      token: tokenRecebido,
-      nome: res.data.nome || decoded.nome || 'Usuário',
-      email: res.data.email || decoded.sub || email,
-      reputacao: res.data.reputacao || 0,
-      conquistas: res.data.conquistas || [],
-      role: decoded.role // ← extraído do token
+        token: tokenRecebido,
+        nome: res.data.nome || decoded.nome || 'Usuário',
+        email: res.data.email || decoded.sub || email,
+        reputacao: res.data.reputacao || 0,
+        conquistas: res.data.conquistas || [],
+        role: decoded.role
       };
 
+      // ✅ Agora sim: salvar após declarar
+      localStorage.setItem('token', tokenRecebido);
+      localStorage.setItem('usuario', JSON.stringify(usuario));
 
-      login(usuario); // envia tudo para o AuthContext
-      setToken(tokenRecebido); // exibe no textarea (opcional)
-      navigate('/dashboard');
+      login(usuario);
+      setToken(tokenRecebido);
+      navigate(origem);
     } catch (err) {
       console.error("Erro ao fazer login:", err);
       alert("Credenciais inválidas ou erro de conexão.");

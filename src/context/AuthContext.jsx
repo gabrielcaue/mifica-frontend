@@ -6,30 +6,34 @@ const AuthContext = createContext(null);
 export function AuthProvider({ children }) {
   const [usuario, setUsuario] = useState(null);
   const [token, setToken] = useState(null);
+  const [carregando, setCarregando] = useState(true);
 
   useEffect(() => {
-    const dadosSalvos = localStorage.getItem('usuario');
     const tokenSalvo = localStorage.getItem('token');
+    const usuarioSalvo = localStorage.getItem('usuario');
 
-    if (dadosSalvos) {
-      setUsuario(JSON.parse(dadosSalvos));
+    if (tokenSalvo && usuarioSalvo) {
+      try {
+        const usuarioRecuperado = JSON.parse(usuarioSalvo);
+        setUsuario(usuarioRecuperado);
+        setToken(tokenSalvo);
+      } catch (error) {
+        console.error('Erro ao carregar usuário do localStorage:', error);
+        localStorage.removeItem('usuario');
+        localStorage.removeItem('token');
+      }
     }
-    if (tokenSalvo) {
-      setToken(tokenSalvo);
-    }
+
+    setCarregando(false);
   }, []);
 
   const login = (dadosUsuario) => {
-    console.log('Dados recebidos no login:', dadosUsuario);
-
     const { token, id, _id, ...resto } = dadosUsuario;
 
-    // Decodifica o token para extrair a role
     let role = undefined;
     try {
       const decoded = jwtDecode(token);
       role = decoded.role;
-      console.log('Token decodificado:', decoded);
     } catch (error) {
       console.error('Erro ao decodificar o token:', error);
     }
@@ -43,15 +47,15 @@ export function AuthProvider({ children }) {
     setUsuario(usuarioFormatado);
     setToken(token);
 
-    localStorage.setItem('usuario', JSON.stringify(usuarioFormatado));
     localStorage.setItem('token', token);
+    localStorage.setItem('usuario', JSON.stringify(usuarioFormatado));
   };
 
   const logout = () => {
     setUsuario(null);
     setToken(null);
-    localStorage.removeItem('usuario');
     localStorage.removeItem('token');
+    localStorage.removeItem('usuario');
   };
 
   const value = {
@@ -59,7 +63,8 @@ export function AuthProvider({ children }) {
     token,
     login,
     logout,
-    isAdmin: usuario?.role === 'ADMIN'
+    isAdmin: usuario?.role === 'ADMIN',
+    carregando
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
