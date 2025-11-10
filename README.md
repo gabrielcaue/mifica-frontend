@@ -61,26 +61,4 @@ Algumas rotas podem apresentar instabilidades no reload
 
 Integração com Streamlit, Docker e GCP será adicionada em breve
 
-Substitua seu-usuario pelos seus dados reais antes de subir.
-```
-🖼️ Prints do projeto
-
-### Tela de Cadastro
-
-![Cadastro de Projeto](prints/cadastro-projeto.png)
-
-### Tela de Login
-
-<img width="713" height="577" alt="Image" src="https://github.com/user-attachments/assets/225357fa-3ea8-43a3-8120-10342c3cf38e" />
-
-### Tela de Dashboard
-
-<img width="1445" height="912" alt="Image" src="https://github.com/user-attachments/assets/f25752dc-9121-4fab-89db-77cca1470734" />
-
-### Tela de Perfil do Usuário
-
-<img width="1083" height="422" alt="Image" src="https://github.com/user-attachments/assets/a1b8c9fd-508e-4869-b6bc-3459f24864e7" />
-
-### Tela de Configuracao
-
-<img width="1102" height="606" alt="Image" src="https://github.com/user-attachments/assets/e5e9a04f-5be0-49ea-82f8-3bb0d6255faf" />
+> Substitua `seu-usuario` e `seu-perfil` pelos seus dados reais antes de subir.
