@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import logo from '../assets/logo.png';
 
 export default function Topo() {
-  const { logout } = useAuth();
+  const { logout, user } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -24,7 +24,7 @@ export default function Topo() {
         </Link>
 
         {/* Menu */}
-        <div className="flex gap-4">
+        <div className="flex gap-4 items-center">
           <Link
             to="/dashboard"
             className="px-4 py-2 border border-gray-600 rounded text-white hover:bg-gray-700 transition"
@@ -43,6 +43,19 @@ export default function Topo() {
           >
             Configurações
           </Link>
+
+          {/* Botão para admins */}
+          {user?.role === 'admin' && (
+            <a
+              href="http://localhost:8501"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 border border-green-600 rounded text-green-300 hover:bg-green-700 transition"
+            >
+              🧠 Painel de Inteligência Mifica
+            </a>
+          )}
+
           <button
             onClick={handleLogout}
             className="px-4 py-2 border border-gray-600 rounded text-white hover:bg-red-600 transition"
