@@ -13,7 +13,7 @@ const senhaCorreta = import.meta.env.VITE_SENHA_ADMIN;
 const handleSubmit = (e) => {
   e.preventDefault();
   if (senha === senhaCorreta) {
-    sessionStorage.setItem('acessoAdmin', 'true');
+    localStorage.setItem('acessoAdmin', 'true');
     navigate('/cadastro-admin');
   } else {
     setErro('Senha incorreta. Tente novamente.');
