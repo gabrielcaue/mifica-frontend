@@ -5,6 +5,11 @@ import api from '../services/api';
 import logo from '../assets/logo.png';
 
 export default function CadastroAdmin() {
+  const [senhaAcesso, setSenhaAcesso] = useState('');
+  const [autenticado, setAutenticado] = useState(false);
+
+  const senhaAdminCorreta = import.meta.env.VITE_SENHA_ADMIN;
+
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -29,7 +34,8 @@ export default function CadastroAdmin() {
         senha,
         telefone,
         dataNascimento: dataFormatada,
-        role
+        role,
+        senhaAcesso
       });
 
       alert('Administrador cadastrado com sucesso!');
@@ -45,6 +51,39 @@ export default function CadastroAdmin() {
       alert('Erro ao cadastrar administrador');
     }
   };
+
+  if (!autenticado) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white px-4">
+        <div className="bg-slate-800 p-8 rounded-xl shadow-xl w-full max-w-md">
+          <div className="flex flex-col items-center mb-4">
+            <img src={logo} alt="Logo Mifica" className="w-12 mb-3" />
+            <h2 className="text-2xl font-bold text-center">🔐 Acesso Restrito</h2>
+            <p className="text-sm text-gray-300 text-center">Digite a senha para acessar o cadastro de administrador</p>
+          </div>
+          <input
+            type="password"
+            placeholder="Senha de acesso"
+            value={senhaAcesso}
+            onChange={e => setSenhaAcesso(e.target.value)}
+            className="w-full px-4 py-2 mb-4 border border-gray-600 rounded-md bg-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+          <button
+            onClick={() => {
+              if (senhaAcesso === senhaAdminCorreta) {
+                setAutenticado(true);
+              } else {
+                alert("Senha incorreta");
+              }
+            }}
+            className="w-full bg-indigo-600 text-white py-2 rounded-md font-semibold hover:bg-indigo-700 transition"
+          >
+            Entrar
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-4">

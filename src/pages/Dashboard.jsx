@@ -15,11 +15,6 @@ export default function Dashboard() {
   const [totalValor, setTotalValor] = useState(0);
   const [ultimaTransacao, setUltimaTransacao] = useState(null);
 
-  const handleLogout = () => {
-    logout();
-    navigate('/');
-  };
-
   useEffect(() => {
     api.get('/blockchain/transacoes')
       .then(response => {
@@ -73,16 +68,15 @@ export default function Dashboard() {
               </ul>
             </div>
 
-            <div className="flex gap-3 mt-6">
-              <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Acessar</button>
-              <button className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition">Cancelar</button>
+            {/* Botão exclusivo para admins */}
+            {usuario.role === 'ADMIN' && (
               <button
-                className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
-                onClick={handleLogout}
+                onClick={() => window.open('http://localhost:8501', '_blank')}
+                className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition mt-6"
               >
-                Sair
+                Acessar Painel Administrativo
               </button>
-            </div>
+            )}
           </div>
 
           {/* Indicadores Blockchain */}

@@ -52,7 +52,7 @@ src/
 ├── pages/
 ├── services/
 └── App.jsx
-
+```
 📌 Observações
 
 O projeto ainda está em ajustes finais
@@ -63,3 +63,17 @@ Integração com Streamlit, Docker e GCP será adicionada em breve
 
 > Substitua `seu-usuario` pelos seus dados reais antes de subir.
 
+### Cadastro
+![Cadastro de Projeto](prints/cadastro-projeto.png)
+
+### Login
+<img width="1021" height="577" alt="Image" src="https://github.com/user-attachments/assets/225357fa-3ea8-43a3-8120-10342c3cf38e" />
+
+### Perfil
+<img width="1083" height="422" alt="Image" src="https://github.com/user-attachments/assets/a1b8c9fd-508e-4869-b6bc-3459f24864e7" />
+
+### Configuracoes
+<img width="1102" height="606" alt="Image" src="https://github.com/user-attachments/assets/e5e9a04f-5be0-49ea-82f8-3bb0d6255faf" />
+
+### Dashboard
+<img width="1445" height="912" alt="Image" src="https://github.com/user-attachments/assets/f25752dc-9121-4fab-89db-77cca1470734" />
