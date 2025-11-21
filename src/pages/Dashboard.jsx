@@ -69,7 +69,7 @@ export default function Dashboard() {
             </div>
 
             {/* Botão exclusivo para admins */}
-            {usuario.role === 'ADMIN' && (
+            {usuario.role === 'ROLE_ADMIN' && (
               <button
                 onClick={() => window.open('http://localhost:8501', '_blank')}
                 className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition mt-6"

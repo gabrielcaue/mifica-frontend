@@ -56,7 +56,7 @@ export default function Login() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 px-4">
       <form
-        onSubmit={handleLogin}
+        onSubmit={(e) => handleLogin(e)}
         className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md border border-gray-200"
       >
         <div className="flex flex-col items-center mb-6">

@@ -61,25 +61,31 @@ export default function CadastroAdmin() {
             <h2 className="text-2xl font-bold text-center">🔐 Acesso Restrito</h2>
             <p className="text-sm text-gray-300 text-center">Digite a senha para acessar o cadastro de administrador</p>
           </div>
-          <input
-            type="password"
-            placeholder="Senha de acesso"
-            value={senhaAcesso}
-            onChange={e => setSenhaAcesso(e.target.value)}
-            className="w-full px-4 py-2 mb-4 border border-gray-600 rounded-md bg-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-          <button
-            onClick={() => {
-              if (senhaAcesso === senhaAdminCorreta) {
-                setAutenticado(true);
-              } else {
-                alert("Senha incorreta");
-              }
-            }}
-            className="w-full bg-indigo-600 text-white py-2 rounded-md font-semibold hover:bg-indigo-700 transition"
-          >
-            Entrar
-          </button>
+<form
+  onSubmit={(e) => {
+    e.preventDefault();
+    if (senhaAcesso === senhaAdminCorreta) {
+      setAutenticado(true);
+    } else {
+      alert("Senha incorreta");
+    }
+  }}
+>
+  <input
+    type="password"
+    placeholder="Senha de acesso"
+    value={senhaAcesso}
+    onChange={e => setSenhaAcesso(e.target.value)}
+    className="w-full px-4 py-2 mb-4 border border-gray-600 rounded-md bg-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+  />
+  <button
+    type="submit"
+    className="w-full bg-indigo-600 text-white py-2 rounded-md font-semibold hover:bg-indigo-700 transition"
+  >
+    Entrar
+  </button>
+</form>
+
         </div>
       </div>
     );
