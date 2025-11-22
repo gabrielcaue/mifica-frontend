@@ -4,7 +4,6 @@ import { useAuth } from './context/AuthContext';
 // Páginas
 import Login from './pages/Login.jsx';
 import Cadastro from './pages/Cadastro.jsx';
-import AdminDashboard from './pages/admin/AdminDashboard.jsx';
 import CadastroAdmin from './pages/CadastroAdmin.jsx';
 import AcessoAdmin from './pages/AcessoAdmin.jsx';
 import Dashboard from './pages/Dashboard';
@@ -14,6 +13,17 @@ import RotaCadastroAdmin from './pages/RotaCadastroAdmin.jsx';
 
 // Componentes
 import RotaAdmin from './components/RotaAdmin.jsx';
+
+// Novo componente para embutir Streamlit
+function AdminPanel() {
+  return (
+    <iframe
+      src="http://localhost:8501"
+      style={{ width: "100%", height: "100vh", border: "none" }}
+      title="Painel Administrativo"
+    />
+  );
+}
 
 function RotasProtegidas() {
   const { usuario } = useAuth();
@@ -47,7 +57,7 @@ function RotasProtegidas() {
         element={
           usuario ? (
             <RotaAdmin>
-              <AdminDashboard />
+              <AdminPanel />
             </RotaAdmin>
           ) : (
             <Navigate to="/login" state={{ from: location.pathname }} />
