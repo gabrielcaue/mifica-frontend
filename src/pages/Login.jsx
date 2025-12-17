@@ -6,8 +6,6 @@ import logo from '../assets/logo.png';
 import { jwtDecode } from 'jwt-decode';
 
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
   const [token, setToken] = useState('');
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -17,10 +15,16 @@ export default function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
+    // ✅ Captura valores diretamente do formulário
+    const formData = new FormData(e.target);
+    const emailForm = formData.get("email");
+    const senhaForm = formData.get("senha");
+
     try {
       const res = await api.post('/usuarios/login', {
-        email: email.trim(),
-        senha: senha.trim()
+        email: emailForm.trim(),
+        senha: senhaForm.trim()
       });
 
       const tokenRecebido = res.data.token;
@@ -33,14 +37,15 @@ export default function Login() {
 
       const usuario = {
         token: tokenRecebido,
+        id: res.data.id, // ✅ garante que o ID seja salvo
         nome: res.data.nome || decoded.nome || 'Usuário',
-        email: res.data.email || decoded.sub || email,
+        email: res.data.email || decoded.sub || emailForm,
         reputacao: res.data.reputacao || 0,
         conquistas: res.data.conquistas || [],
-        role: decoded.role
+        role: res.data.role || decoded.role
       };
 
-      // ✅ Agora sim: salvar após declarar
+      // ✅ Salva no localStorage
       localStorage.setItem('token', tokenRecebido);
       localStorage.setItem('usuario', JSON.stringify(usuario));
 
@@ -56,7 +61,7 @@ export default function Login() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 px-4">
       <form
-        onSubmit={(e) => handleLogin(e)}
+        onSubmit={handleLogin}
         className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md border border-gray-200"
       >
         <div className="flex flex-col items-center mb-6">
@@ -68,17 +73,15 @@ export default function Login() {
         <div className="space-y-4">
           <input
             type="email"
+            name="email" // ✅ necessário para FormData
             placeholder="Email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <input
             type="password"
+            name="senha" // ✅ necessário para FormData
             placeholder="Senha"
-            value={senha}
-            onChange={e => setSenha(e.target.value)}
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />

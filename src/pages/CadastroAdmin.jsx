@@ -45,7 +45,7 @@ export default function CadastroAdmin() {
       setTelefone('');
       setDataNascimento('');
       setRole('USER');
-      navigate('/admin');
+      navigate('/login');
     } catch (err) {
       console.error('Erro ao cadastrar administrador:', err);
       alert('Erro ao cadastrar administrador');

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import Topo from '../components/Topo';
-import axios from 'axios';
+import api from '../services/api';
 
 export default function Configuracao() {
   const { usuario, token } = useAuth(); // token deve estar disponível no contexto
@@ -24,11 +24,11 @@ export default function Configuracao() {
     }
 
     try {
-      await axios.put(
-        `/api/usuarios/${usuario.id}`,
+      await api.put(
+        `/usuarios/${usuario.id}/senha`,
         {
-          id: usuario.id,
-          senha: novaSenha
+          senhaAtual,
+          senhaNova: novaSenha
         },
         {
           headers: {

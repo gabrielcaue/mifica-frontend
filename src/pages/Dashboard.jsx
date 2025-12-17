@@ -71,7 +71,9 @@ export default function Dashboard() {
             {/* Botão exclusivo para admins */}
             {usuario.role === 'ROLE_ADMIN' && (
               <button
-                onClick={() => window.open('http://localhost:8501', '_blank')}
+                  // 🔧 ALTERADO: antes era "http://localhost:8501"
+                  // agora usamos "/streamlit" para passar pelo Traefik
+                onClick={() => window.open('/streamlit', '_blank')}                
                 className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition mt-6"
               >
                 Acessar Painel Administrativo

@@ -28,20 +28,23 @@ export function AuthProvider({ children }) {
   }, []);
 
   const login = (dadosUsuario) => {
-    const { token, id, _id, ...resto } = dadosUsuario;
+    const { token, id, _id, role, ...resto } = dadosUsuario;
 
-    let role = undefined;
+    let roleFinal = role;
     try {
       const decoded = jwtDecode(token);
-      role = decoded.role;
+      // se o token tiver role, usa ele
+      if (decoded?.role) {
+        roleFinal = decoded.role;
+      }
     } catch (error) {
       console.error('Erro ao decodificar o token:', error);
     }
 
     const usuarioFormatado = {
       ...resto,
-      id: id || _id,
-      role: role
+      id: id || _id,   // garante que o ID seja salvo
+      role: roleFinal  // mantém ROLE_ADMIN ou ROLE_USER
     };
 
     setUsuario(usuarioFormatado);
@@ -63,7 +66,8 @@ export function AuthProvider({ children }) {
     token,
     login,
     logout,
-    isAdmin: usuario?.role === 'ADMIN',
+    // compara com ROLE_ADMIN para ficar consistente com backend
+    isAdmin: usuario?.role === 'ROLE_ADMIN',
     carregando
   };
 

@@ -13,6 +13,8 @@ export default function Cadastro() {
   const handleCadastro = async (e) => {
     e.preventDefault();
     try {
+      // 🔧 ALTERADO: antes estava "/api/usuarios/cadastro"
+      // agora basta "/usuarios/cadastro" porque o baseURL já é "/api"
       const response = await api.post('/usuarios/cadastro', {
         nome,
         email,
