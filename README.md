@@ -5,10 +5,7 @@ O objetivo é oferecer uma plataforma modular com reputação, gamificação e t
 
 ---
 
-## 🚀 Demonstração
-
-> ⚠️ O deploy público ainda não foi realizado.  
-> O projeto está pronto para containerização e deploy em **Docker** e **Google Cloud Platform (GCP)**.  
+## 🚀 Demonstração 
 
 ### Telas principais
 - **Cadastro de Usuário**  
@@ -69,8 +66,6 @@ CREATE TABLE usuarios (
 );
 ```
 ## 🧩 Próximos passos
-### 🐳 Containerização completa com Docker Compose (frontend + backend + MySQL + Streamlit)
-
 ### ☁️ Deploy em Google Cloud Platform (GCP) com Cloud Run e Cloud SQL
 
 ### 🔗 Integração com Data Mash para enriquecimento de dados
